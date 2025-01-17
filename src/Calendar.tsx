@@ -3,6 +3,7 @@ import ReactCalendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import "./App.css";
 import styled from "@emotion/styled";
+import { Range } from "react-calendar/src/shared/types.js";
 
 export interface CalendarProps {
   locale?: string;
@@ -47,9 +48,13 @@ export default function CalendarComponent({
     );
   };
 
-  const handleDateChange = (date: Date | null) => {
+  const handleDateChange = (date: Date | null | Range<Date | null>) => {
     if (!date) {
-      alert("Date is null");
+      console.error("Date is null - this should never happen");
+      return;
+    }
+    if (Array.isArray(date)) {
+      console.error("Date is an array - this should never happen");
       return;
     }
     if (!fromDate && !toDate) {
