@@ -1,50 +1,27 @@
-# React + TypeScript + Vite
+ # 📅 CalendarComponent
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to my Calendar Component project! This lightweight, responsive calendar application is designed to simplify date selection and range picking, demonstrating my expertise in React development.
 
-Currently, two official plugins are available:
+🚀 Experience it here: [Live Demo](https://dcDavidCerny.github.io/calendarComponent/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📋 Prop Settings
 
-## Expanding the ESLint configuration
+| **Prop Name**       | **Description**                                                                                                                                     | **Default Value**     | **Example Values**      |
+|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|------------------------|--------------------------|
+| **locale**           | The language/locale used for date formatting in the calendar.                                                                                      | `"cs-CZ"`             | `"en-US"`, `"sk-SK"`    |
+| **maxDays**          | The maximum number of days a user can select for a range.                               | `30`           | `7`, `14`, `undefined`         |
+| **minDate**          | The earliest date that can be selected in the calendar. Users cannot pick a date before this value.                                                | `new Date() - "today's date"`           | `new Date(2025, 0, 1)`  |
+| **favouriteDateRanges** | Predefined ranges of dates that users can select with a single click. Each range includes a name, start date, and end date.                        | `undefined`           | `{ name: "Last Minute", from: new Date(), to: new Date(new Date().setDate(new Date().getDate() + 7)) } - "ranged from today to 7 days later"` |
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## 🚀 Features
 
-- Configure the top-level `parserOptions` property like this:
+- **Range Selection:** Select a range of dates or a single date based on your preferences.
+- **Locale Support:** Change the language/locale dynamically.
+- **Predefined Ranges:** Use predefined date ranges for quick selection.
+- **Customization:** Adjust settings like the maximum selectable range and minimum date.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## 📊 Tech Stack
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+- **React:** Core framework for building the component and handling dynamic rendering.
+- **CSS:** Provides a clean, modern, and responsive user interface.
+- **TypeScript:** Ensures type safety, improved maintainability, and robust development practices.
