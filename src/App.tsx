@@ -59,7 +59,7 @@ function App() {
           </h2>
           <div className="propsSettings flex flex-row justify-center">
             <div className="languageBox mr-7">
-              <h3 className="text-2xl font-bold flex justify-center">
+              <h3 className="text-2xl font-bold flex text-gray-200 justify-center">
                 language:
               </h3>
               <div className="languagesContainer flex flex-row justify-center">
@@ -102,7 +102,7 @@ function App() {
             </div>
 
             <div className="daysBox ml-7 mr-7">
-              <h3 className="text-2xl font-bold flex justify-center">
+              <h3 className="text-2xl font-bold text-gray-200 flex justify-center">
                 Maximum Days to Pick:
               </h3>
               <div className="daysContainer flex flex-row justify-center">
@@ -138,7 +138,7 @@ function App() {
             </div>
 
             <div className="minDateBox flex flex-col ml-7">
-              <h3 className="text-2xl font-bold flex justify-center">
+              <h3 className="text-2xl font-bold text-gray-200 flex justify-center">
                 Min Date to Pick:
               </h3>
               <input
