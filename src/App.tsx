@@ -9,6 +9,13 @@ function App() {
   >("cs-CZ");
   const [maxDays, setMaxDays] = useState<number | undefined>(30);
   const [minDate, setMinDate] = useState(new Date());
+  const [selectedDates, setSelectedDates] = useState<{
+    from: Date | null;
+    to: Date | null;
+  }>({
+    from: null,
+    to: null,
+  });
 
   const favouriteDateRangesTranslations = {
     "cs-CZ": {
@@ -145,6 +152,12 @@ function App() {
               />
             </div>
           </div>
+          {selectedDates.from && selectedDates.to && (
+            <span className="flex justify-center text-white font-semibold text-xl p-2">
+              selected dates:{" "}
+              {`${selectedDates.from?.toLocaleDateString()} - ${selectedDates.to?.toLocaleDateString()}`}
+            </span>
+          )}
         </div>
         <CalendarComponent
           locale={locale}
@@ -180,6 +193,7 @@ function App() {
               to: new Date("2026-01-02"),
             },
           ]}
+          onChange={(dates) => setSelectedDates(dates)}
         />
         ;
       </div>

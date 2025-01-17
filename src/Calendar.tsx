@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ReactCalendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import "./App.css";
@@ -11,12 +11,14 @@ export interface CalendarProps {
   minDate?: Date;
   maxDate?: Date;
   favouriteDateRanges?: { name: string; from: Date; to: Date }[];
+  onChange?: ({ from, to }: { from: Date; to: Date }) => void;
 }
 export default function CalendarComponent({
   locale,
   minDate,
   favouriteDateRanges,
   maxDays,
+  onChange,
 }: CalendarProps) {
   const [leftMonth, setLeftMonth] = useState(new Date(2025, 0, 1));
   const rightMonth = new Date(
@@ -27,6 +29,12 @@ export default function CalendarComponent({
 
   const [fromDate, setFromDate] = useState<Date | null>(null);
   const [toDate, setToDate] = useState<Date | null>(null);
+
+  useEffect(() => {
+    if (fromDate && toDate) {
+      onChange?.({ from: fromDate, to: toDate });
+    }
+  }, [fromDate, toDate]);
 
   const handleLeftMonthChange = ({
     activeStartDate,
